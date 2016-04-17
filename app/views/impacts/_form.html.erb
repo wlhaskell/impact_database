@@ -1,0 +1,65 @@
+<%= form_for(@impact) do |f| %>
+  <% if @impact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@impact.errors.count, "error") %> prohibited this impact from being saved:</h2>
+
+      <ul>
+      <% @impact.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :country %><br>
+    <%= f.text_field :country %>
+  </div>
+  <div class="field">
+    <%= f.label :continent %><br>
+    <%= f.text_field :continent %>
+  </div>
+  <div class="field">
+    <%= f.label :lat %><br>
+    <%= f.text_field :lat %>
+  </div>
+  <div class="field">
+    <%= f.label :lon %><br>
+    <%= f.text_field :lon %>
+  </div>
+  <div class="field">
+    <%= f.label :diameter %><br>
+    <%= f.text_field :diameter %>
+  </div>
+  <div class="field">
+    <%= f.label :age %><br>
+    <%= f.text_field :age %>
+  </div>
+  <div class="field">
+    <%= f.label :exposed %><br>
+    <%= f.text_field :exposed %>
+  </div>
+  <div class="field">
+    <%= f.label :drilled %><br>
+    <%= f.text_field :drilled %>
+  </div>
+  <div class="field">
+    <%= f.label :target_rock %><br>
+    <%= f.text_field :target_rock %>
+  </div>
+  <div class="field">
+    <%= f.label :bolide_type %><br>
+    <%= f.text_field :bolide_type %>
+  </div>
+  <div class="field">
+    <%= f.label "Photo" %><br>
+    <%= f.file_field :image %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @impact.name %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @impact.country %>
+</p>
+
+<p>
+  <strong>Continent:</strong>
+  <%= @impact.continent %>
+</p>
+
+<p>
+  <strong>Lat:</strong>
+  <%= @impact.lat %>
+</p>
+
+<p>
+  <strong>Lon:</strong>
+  <%= @impact.lon %>
+</p>
+
+<p>
+  <strong>Diameter:</strong>
+  <%= @impact.diameter %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @impact.age %>
+</p>
+
+<p>
+  <strong>Exposed:</strong>
+  <%= @impact.exposed %>
+</p>
+
+<p>
+  <strong>Drilled:</strong>
+  <%= @impact.drilled %>
+</p>
+
+<p>
+  <strong>Target rock:</strong>
+  <%= @impact.target_rock %>
+</p>
+
+<p>
+  <strong>Bolide type:</strong>
+  <%= @impact.bolide_type %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @impact.image.url %>
+</p>
+
+<%= link_to 'Edit', edit_impact_path(@impact) %> |
+<%= link_to 'Back', impacts_path %>

@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Impacts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Country</th>
+      <th>Continent</th>
+      <th>Lat</th>
+      <th>Lon</th>
+      <th>Diameter</th>
+      <th>Age</th>
+      <th>Exposed</th>
+      <th>Drilled</th>
+      <th>Target rock</th>
+      <th>Bolide type</th>
+      <th>Image</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @impacts.each do |impact| %>
+      <tr>
+        <td><%= impact.name %></td>
+        <td><%= impact.country %></td>
+        <td><%= impact.continent %></td>
+        <td><%= impact.lat %></td>
+        <td><%= impact.lon %></td>
+        <td><%= impact.diameter %></td>
+        <td><%= impact.age %></td>
+        <td><%= impact.exposed %></td>
+        <td><%= impact.drilled %></td>
+        <td><%= impact.target_rock %></td>
+        <td><%= impact.bolide_type %></td>
+        <td><%= impact.image %></td>
+        <td><%= link_to 'Show', impact %></td>
+        <td><%= link_to 'Edit', edit_impact_path(impact) %></td>
+        <td><%= link_to 'Destroy', impact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Impact', new_impact_path %>
+
+<div id="map-canvas"></div>
+
+<%= javascript_tag do %>
+  var coord = [];
+  var names = [];
+  <% @impacts.each do |impact| %>
+    coord.push( ["<%= j impact.lat.to_s %>", "<%= j impact.lon.to_s %>"]);
+    names.push( "<%= j impact.name.to_s %>" );
+  <% end %>
+
+<% end %>
