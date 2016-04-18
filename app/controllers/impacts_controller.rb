@@ -4,7 +4,21 @@ class ImpactsController < ApplicationController
   # GET /impacts
   # GET /impacts.json
   def index
-    @impacts = Impact.all
+
+    if params[:continent] != nil
+      @impacts = Impact.where(continent: params[:continent])
+      @address = params[:continent]
+    elsif params[:country] != nil
+      @impacts = Impact.where(country: params[:country])
+      @address = params[:country]
+    else
+      @impacts = Impact.all
+      @address = "World"
+    end
+
+    @all_countries = Impact.select(:country).order(:country).distinct
+    @all_continents = Impact.select(:continent).order(:continent).distinct
+
   end
 
   # GET /impacts/1

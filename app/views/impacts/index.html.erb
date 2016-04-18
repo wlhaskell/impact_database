@@ -1,8 +1,6 @@
-<p id="notice"><%= notice %></p>
+<div id="map-canvas"></div>
 
-<h1>Listing Impacts</h1>
-
-<table>
+<table class = "table table-hover">
   <thead>
     <tr>
       <th>Name</th>
@@ -46,16 +44,22 @@
 
 <br>
 
-<%= link_to 'New Impact', new_impact_path %>
+<p id="notice"><%= notice %></p>
 
-<div id="map-canvas"></div>
+<%= link_to 'New Impact', new_impact_path %>
 
 <%= javascript_tag do %>
   var coord = [];
   var names = [];
+  var diameter = [];
+  var age = [];
+
   <% @impacts.each do |impact| %>
+    address = "<%= j @address %>";
     coord.push( ["<%= j impact.lat.to_s %>", "<%= j impact.lon.to_s %>"]);
     names.push( "<%= j impact.name.to_s %>" );
+    diameter.push( "<%= j impact.diameter.to_s %>" );
+    age.push( "<%= j impact.age.to_s %>" );
   <% end %>
 
 <% end %>
